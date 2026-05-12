@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ES Rallonges</title>
+
+<style>
+:root{
+  --bg:#0A0A0A;
+  --card:#111;
+  --text:#EAEAEA;
+  --muted:#888;
+  --accent:#D4AF37;
+}
+
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
+body{background:var(--bg);color:var(--text);}
+
+/* HEADER */
+header{
+  position:sticky;top:0;
+  background:rgba(0,0,0,0.7);
+  backdrop-filter:blur(10px);
+  padding:15px 20px;
+  display:flex;justify-content:space-between;
+  z-index:1000;
+}
+.btn{
+  background:var(--accent);
+  color:black;
+  padding:10px 15px;
+  border-radius:8px;
+  text-decoration:none;
+}
+
+/* HERO */
+.hero{
+  text-align:center;
+  padding:80px 20px;
+}
+.hero h1{
+  font-size:32px;
+  margin-bottom:10px;
+}
+.hero p{color:var(--muted);}
+
+/* SECTION */
+.section{
+  padding:60px 20px;
+  max-width:1100px;
+  margin:auto;
+}
+
+/* CARD */
+.card{
+  background:var(--card);
+  padding:20px;
+  border-radius:12px;
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+/* IMAGE */
+.img-box{
+  text-align:center;
+}
+.img-box img{
+  width:100%;
+  max-width:280px;
+  border-radius:10px;
+}
+
+/* GALLERY CONTROLS */
+.controls{
+  margin-top:10px;
+}
+.controls button{
+  background:var(--accent);
+  border:none;
+  padding:6px 10px;
+  margin:3px;
+  cursor:pointer;
+  border-radius:5px;
+}
+
+/* SCROLL */
+.hidden{
+  opacity:0;
+  transform:translateY(40px);
+  transition:0.6s;
+}
+.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:30px;
+  background:#000;
+}
+footer a{
+  color:var(--accent);
+  margin:0 8px;
+}
+.team-slider{
+  overflow:hidden;
+  margin-top:20px;
+}
+.team-track{
+  display:flex;
+  gap:20px;
+  transition:transform 0.5s ease;
+}
+.team-card{
+  min-width:250px;
+  background:var(--card);
+  padding:15px;
+  border-radius:10px;
+  text-align:center;
+}
+.team-card img{
+  width:80px;
+  height:80px;
+  border-radius:50%;
+  margin-bottom:10px;
+}
+.company-name{
+  background: linear-gradient(
+    120deg,
+    #D4AF37 0%,
+    #FFD700 25%,
+    #FFF5CC 50%,
+    #FFD700 75%,
+    #D4AF37 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  font-weight: bold;
+  letter-spacing: 2px;
+
+  /* glow léger */
+  text-shadow:
+    0 0 5px rgba(255,215,0,0.4),
+    0 0 10px rgba(212,175,55,0.3);
+
+  /* animation shine */
+  background-size: 200% auto;
+  animation: goldShine 3s linear infinite;
+}
+
+@keyframes goldShine {
+  to {
+    background-position: 200% center;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div style="display:flex;align-items:center;gap:10px;">
+  <img src="logo.jpg" style="width:40px;height:40px;border-radius:8px;">
+  <i class="company-name">MS-COMPANY</i>
+</div>
+  <a href="#contact" class="btn">Contacts</a>
+</header>
+
+<!-- HERO -->
+<section class="hero hidden">
+<h3 class="company-name">MS-RALLONGES</h3>
+  <h1>Puissance. Sécurité. Fiabilité.</h1>
+  <p>Rallonges électriques fabriquées avec précision</p>
+</section>
+<section class="section hidden">
+  <h2>Des rallonges conçues pour durer</h2>
+  <p style="color:var(--muted);max-width:700px;">
+    Nos rallonges sont fabriquées avec des matériaux résistants, testées pour supporter une utilisation quotidienne intensive.
+    Que ce soit pour la maison ou un usage professionnel, nous garantissons sécurité, durabilité et performance.
+  </p>
+</section>
+
+<!-- MODELS -->
+<section class="section hidden">
+  <h2>Modèles principaux</h2>
+  <div class="grid">
+
+    <div class="card">
+      <div class="img-box">
+        <img id="model1" src="">
+        <div class="controls">
+          <button onclick="prev('model1')">◀</button>
+          <button onclick="next('model1')">▶</button>
+        </div>
+      </div>
+      <h3>Moyen</h3>
+      <p>22 prises</p>
+    </div>
+
+    <div class="card">
+      <div class="img-box">
+        <img id="model2" src="">
+        <div class="controls">
+          <button onclick="prev('model2')">◀</button>
+          <button onclick="next('model2')">▶</button>
+        </div>
+      </div>
+      <h3>Large</h3>
+      <p>34 prises</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="section hidden">
+  <h2>Détails techniques</h2>
+  <div class="grid">
+    <div class="card">✔ Câble renforcé haute résistance</div>
+    <div class="card">✔ Protection contre surchauffe</div>
+    <div class="card">✔ Prises solides et durables</div>
+    <div class="card">✔ Adapté usage intensif</div>
+  </div>
+</section>
+
+<!-- VARIANTES -->
+<section class="section hidden">
+  <h2>Variantes</h2>
+  <div class="img-box">
+    <img id="variants" src="">
+    <div class="controls">
+      <button onclick="prev('variants')">◀</button>
+      <button onclick="next('variants')">▶</button>
+    </div>
+  </div>
+</section>
+
+<section class="section hidden">
+  <h2>Équipe technique</h2>
+
+  <div class="team-slider">
+    <div class="team-track" id="team-track">
+      <!-- JS injecte -->
+    </div>
+  </div>
+
+</section>
+
+<!-- ATELIER -->
+<section class="section hidden">
+  <h2>Fabrication</h2>
+  <div class="img-box">
+    <img id="atelier" src="">
+    <div class="controls">
+      <button onclick="prev('atelier')">◀</button>
+      <button onclick="next('atelier')">▶</button>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section hidden">
+  <h2>Besoin d'une rallonge ?</h2>
+  <a href="https://wa.me/243998686317" class="btn  motion">WhatsApp</a>
+</section>
+
+<footer id="contact">
+  <p>CONTACTS :</p>
+  <a href="https://wa.me/243998686317">WhatsApp</a>
+  <a href="243998686317">Appel</a>
+  <a href="musavulishukuru40@gmail.com">Email</a>
+  <a href="https://www.facebook.com/share/1JJUieTPiC/?mibextid=wwXIfr">Facebook</a>
+</footer>
+
+<script>
+
+// SCROLL
+const obs=new IntersectionObserver(e=>{
+  e.forEach(el=>{
+    if(el.isIntersecting) el.target.classList.add('show');
+  });
+});
+document.querySelectorAll('.hidden').forEach(el=>obs.observe(el));
+
+// IMAGE BANKS
+const galleries={
+  model1:[
+    "/moyen-1.jpg",
+    "/moyen-2.jpg",
+    "/moyen-3.jpg",
+    "/moyen-4.jpg",
+    "/moyen-5.jpg"
+  ],
+  model2:[
+    "/large-1.jpg",
+    "/large-2.jpg",
+    "/large-3.jpg",
+    "/large-4.jpg"
+  ],
+  variants:[
+    "/variante-1.jpg",
+    "/variante-2.jpg",
+    "/variante-3.jpg",
+    "/variante-4.jpg",
+    "/variante-5.jpg",
+    "/variante-6.jpg",
+    "/variante-7.jpg",
+    "/variante-8.jpg",
+    "/variante-9.jpg"
+  ],
+  atelier:[
+    "atelier-1.jpg",
+    "atelier-2.jpg",
+    "atelier-3.jpg",
+    "atelier-4.jpg",
+    "atelier-5.jpg",
+    "atelier-6.jpg",
+  ]
+};
+
+const teamData = [
+  {
+    name:"Musavuli Shukuru",
+    img:"shukuru.jpg",
+    bio:"CEO/Fondateur de l'entreprise"
+  },
+  {
+    name:"Patrick",
+    img:"tech1.jpg",
+    bio:"Technicien montage"
+  },
+  {
+    name:"David",
+    img:"tech2.jpg",
+    bio:"Contrôle qualité"
+  },
+  {
+    name:"Elonga Stark",         img:"https://elongastarks.github.io/Portfolio/es.jpg",
+    bio:"Associé commission de vente et Web master"
+  }
+];
+
+const teamTrack = document.getElementById("team-track");
+
+teamData.forEach(t=>{
+  const div = document.createElement("div");
+  div.className="team-card";
+  div.innerHTML=`
+    <img src="${t.img}">
+    <h4>${t.name}</h4>
+    <p style="color:var(--muted);">${t.bio}</p>
+  `;
+  teamTrack.appendChild(div);
+});
+
+// AUTO SLIDE (3s)
+let pos=0;
+setInterval(()=>{
+  pos++;
+  if(pos >= teamData.length) pos=0;
+  teamTrack.style.transform = `translateX(-${pos * 270}px)`;
+},3000);
+
+const index={};
+
+function init(){
+  for(let key in galleries){
+    index[key]=0;
+    document.getElementById(key).src=galleries[key][0];
+  }
+}
+
+function next(id){
+  index[id]=(index[id]+1)%galleries[id].length;
+  document.getElementById(id).src=galleries[id][index[id]];
+}
+
+function prev(id){
+  index[id]=(index[id]-1+galleries[id].length)%galleries[id].length;
+  document.getElementById(id).src=galleries[id][index[id]];
+}
+
+init();
+
+</script>
+
+</body>
+</html>
