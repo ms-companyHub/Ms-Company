@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 - Page introuvable | MS-Company</title>
+<style>
+  :root {
+    --black: #0a0a0a;
+    --gold: #d4af37;
+    --gold-dark: #b8941f;
+    --gray: #1a1a1a;
+    --text: #e8e8e8;
+  }
+
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background: var(--black);
+    color: var(--text);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+
+  .container {
+    max-width: 600px;
+    text-align: center;
+    border: 1px solid var(--gold);
+    padding: 60px 40px;
+    background: var(--gray);
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.15);
+  }
+
+  .error-code {
+    font-size: 120px;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+  }
+
+  h1 {
+    font-size: 28px;
+    margin: 20px 0 10px;
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .tagline {
+    font-size: 16px;
+    color: var(--gold);
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #b0b0b0;
+    margin-bottom: 20px;
+  }
+
+  .highlight {
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  .btn-group {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 40px;
+  }
+
+  .btn {
+    padding: 14px 32px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid var(--gold);
+    display: inline-block;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--black);
+  }
+
+  .btn-primary:hover {
+    background: var(--gold-dark);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--gold);
+  }
+
+  .btn-secondary:hover {
+    background: var(--gold);
+    color: var(--black);
+  }
+
+  .logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+  }
+
+  @media (max-width: 600px) {
+    .container {
+      padding: 40px 20px;
+    }
+    .error-code {
+      font-size: 80px;
+    }
+    h1 {
+      font-size: 22px;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">MS-COMPANY</div>
+    
+    <div class="error-code">404</div>
+    
+    <h1>Connexion perdue</h1>
+    <div class="tagline">Circuit ouvert</div>
+    
+    <p>
+      Comme une <span class="highlight">rallonge mal branchée</span>, cette page ne transmet plus de courant.
+    </p>
+    
+    <p>
+      Chez <span class="highlight">MS-Company</span>, on ne laisse jamais un circuit en panne. 
+      Revenons à la source et repartons sur une connexion stable.
+    </p>
+    
+    <div class="btn-group">
+      <a href="/" class="btn btn-primary">Retour à l'accueil</a>
+      <a href="/#contact" class="btn btn-secondary">Nous contacter</a>
+    </div>
+  </div>
+</body>
+  </html>
