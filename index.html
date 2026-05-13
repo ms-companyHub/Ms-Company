@@ -432,22 +432,32 @@ setInterval(()=>{
 },3000);
 
 const index={};
+const cache={}; // stocke les images préchargées
 
 function init(){
   for(let key in galleries){
     index[key]=0;
-    document.getElementById(key).src=galleries[key][0];
+
+    // Préchargement
+    cache[key] = galleries[key].map(src => {
+      const img = new Image();
+      img.src = src;
+      return img;
+    });
+
+    // Affiche la 1ère image
+    document.getElementById(key).src = cache[key][0].src;
   }
 }
 
 function next(id){
   index[id]=(index[id]+1)%galleries[id].length;
-  document.getElementById(id).src=galleries[id][index[id]];
+  document.getElementById(id).src = cache[id][index[id]].src;
 }
 
 function prev(id){
   index[id]=(index[id]-1+galleries[id].length)%galleries[id].length;
-  document.getElementById(id).src=galleries[id][index[id]];
+  document.getElementById(id).src = cache[id][index[id]].src;
 }
 
 init();
