@@ -67,6 +67,44 @@ header{
   gap:20px;
 }
 
+  /* caractéristiques*/
+  .specs{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:12px;
+  margin:20px 0 30px;
+}
+
+.spec{
+  background:var(--card);
+  border:1px solid var(--accent);
+  border-radius:8px;
+  padding:12px 10px; /* réduit */
+  text-align:center;
+  box-shadow:0 0 12px rgba(212,175,55,0.12);
+  transition:0.3s;
+}
+
+.spec:hover{
+  box-shadow:0 0 18px rgba(212,175,55,0.35);
+  transform:translateY(-2px);
+}
+
+.spec strong{
+  display:block;
+  font-size:20px; /* réduit de 26px à 20px */
+  color:var(--accent);
+  letter-spacing:0.5px;
+  text-shadow:0 0 6px rgba(212,175,55,0.35);
+}
+
+.spec span{
+  display:block;
+  font-size:12px; /* réduit de 13px à 12px */
+  color:var(--muted);
+  margin-top:4px;
+  }
+
 /* IMAGE */
 .img-box{
   text-align:center;
@@ -224,6 +262,24 @@ footer a{
 
 <section class="section hidden">
   <h2>Détails techniques</h2>
+  <div class="specs">
+  <div class="spec">
+    <strong>230V</strong>
+    <span>Tension électrique</span>
+  </div>
+  <div class="spec">
+    <strong> 50Hz</strong>
+    <span>Fréquence standard</span>
+  </div>
+  <div class="spec">
+    <strong>16A</strong>
+    <span>Intensité max par ligne</span>
+  </div>
+  <div class="spec">
+    <strong>3.5Kw</strong>
+    <span>Puissance max supportée</span>
+  </div>
+  </div>
   <div class="grid">
     <div class="card">✔ Câble renforcé haute résistance</div>
     <div class="card">✔ Protection contre surchauffe</div>
